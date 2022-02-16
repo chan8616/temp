@@ -14,10 +14,10 @@
 
 ### 2. To Train a model with conv7 features from SoundNet:
 ###    (train/validation sets are already seperated. Just use .pkl files.)
-'''
+``` python
 	python train_mlp.py ./X_train_pkl ./y_train_pkl ./X_test.pkl ./y_test.pkl soundnet.conv7.mlp.model
-'''
+```
 ### 3. Extract the validation result(Confusion matrix)
-'''
+``` python
 	python extract_result.py ./soundnet.conv7.mlp.model ./X_test.pkl ./y_test.pkl ./confusion_matrix.png
-'''
+```
