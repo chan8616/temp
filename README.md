@@ -1,10 +1,13 @@
 # Video classification using audio-only features
 ---------------------------------------------------
 ## How to run
-1. Unzip code.zip /n
-   Please place all unziped files under 11775-hws/spring2022/hw1. /n
-   I assume that you have Soundnet conv7 features under 11775-hws/spring2022/hw1/soundnet/avg_pooling/conv7. /n
-   Directory may look like this: /n
+1. Unzip code.zip
+
+   Please place all unziped files under 11775-hws/spring2022/hw1.
+   
+   I assume that you have Soundnet conv7 features under 11775-hws/spring2022/hw1/soundnet/avg_pooling/conv7. 
+   
+   Directory may look like this: 
 ```bash
 ├── code
 │   ├── split_dataset.py
