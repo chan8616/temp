@@ -2,31 +2,27 @@
 ---------------------------------------------------
 ## How to run
 1. Unzip code.zip <br />
-   Please place all unziped files under 11775-hws/spring2022/hw1. <br />
-   I assume that you have Soundnet conv7 features under 11775-hws/spring2022/hw1/soundnet/avg_pooling/conv7. <br />
+   Please place all unziped files under 11775-hws/spring2022/hw2. <br />
+   I assume that you have convolution features from the last convolution layer of VGG19 <br />
    Directory may look like this: <br />
 ```bash
 ├── code
-│   ├── split_dataset.py
-│   ├── train_model.py
-│   ├── extract_result.py
-│   ├── soundnet.conv7.mlp.model
-│   ├── X_train.pkl
-│   ├── y_train.pkl
-│   ├── X_test.pkl
-│   └── y_test.pkl
+│   ├── modules
+│   ├── stages
+│   ├── run_bow.py
+│   ├── run_cnn.py
+│   ├── run_mlp.py
+│   ├── run_sift.py
+│   └── train_kmeans
 ```
-2. Split dataset into train/validation using conv7 features from SoundNet:<br />
-(train/validation sets are already seperated. Just use .pkl files.)
+2. Run run_cnn.py to extract CNN features:<br />
 ``` python
-python split_dataset.py ./soundnet/avg_pooling/conv7 1024 labels/train_val.csv
+python 
+python code/run_cnn.py data/labels/train_val.csv
+python code/run_cnn.py data/labels/test_for_students.csv
+python code/run_cnn.py data/labels_p2/test_for_students.csv
 ```
-3. To Train a model with conv7 features from SoundNet:<br />
-(you should have train/validation pickle files which are already seperated from the original dataset.)
+3. To Train and test a MLP model with conv features:<br />
 ``` python
-python train_mlp.py ./X_train_pkl ./y_train_pkl ./X_test.pkl ./y_test.pkl soundnet.conv7.mlp.model
-```
-4. Extract the validation result(Confusion matrix)
-``` python
-python extract_result.py ./soundnet.conv7.mlp.model ./X_test.pkl ./y_test.pkl ./confusion_matrix.png
+python code/run_mlp.py cnn --feature_dir data/cnn --num_features 512
 ```
